@@ -11,3 +11,7 @@ def describe_candies():
     def should_give_out_9_candies_for_5_8_6_4():
         """🧪 should give out 9 when the list of children candies are (5, 8, 6, 4)"""
         assert candy_problem.candies([5, 8, 6, 4]) == 9
+
+    def should_give_out_11_candies_for_1_2_4_6():
+        """🧪 should give out 11 when the list of children candies are (1, 2, 4, 6)"""
+        assert candy_problem.candies([1, 2, 4, 6]) == 11
