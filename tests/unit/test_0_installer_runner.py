@@ -23,3 +23,7 @@ def describe_candies():
     def should_give_out_negative_1_candies_for_no_children():
         """🧪 should give out -1 when the there are no children"""
         assert candy_problem.candies([]) == -1
+
+    def should_give_out_negative_1_candies_for_one_child():
+        """🧪 should give out -1 when the there is one child"""
+        assert candy_problem.candies([6]) == -1
