@@ -1,9 +1,9 @@
+import pytest
 from modules import candy_problem
 
 
-def describe_dummy_kata():
-    def should_print_title(capsys):
-        """🧪 expect the dummy kata prints the title"""
-        candy_problem.print_the_title()
-        out, _err = capsys.readouterr()
-        assert "😊 Welcome to Dummy Kata" in out
+def describe_candies():
+    def should_error_when_not_list_of_numbers():
+        """🧪 should error when a list of numbers is not received"""
+        with pytest.raises(ValueError, match="❗️ Input should be a list of integers"):
+            candy_problem.candies("blah")
