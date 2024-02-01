@@ -12,6 +12,8 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+      environment:
+        - PYTHON_VERSION=3.11
     labels:
       version: "1.0.0"
       python.version: "3.9"

@@ -143,6 +143,7 @@ jobs:
           PACT_BROKER_PUBLISH_VERIFICATION_RESULTS: true
           PACT_BROKER_BASE_URL: "https://gotreasa.pactflow.io"
           PACT_BROKER_TOKEN: "${{ secrets.PACT_BROKER_TOKEN }}"
+          PYTHON_VERSION: "${{matrix.python-version}}"
         run: make ci
 
   test_and_coverage:

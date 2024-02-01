@@ -1,7 +1,7 @@
 include .env
 PACTICIPANT := "candy_problem_in_python_app"
 PACT_BROKER_BASE_URL := https://gotreasa.pactflow.io
-PACT_CLI="docker run --network host --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN -e PACT_BROKER_PUBLISH_VERIFICATION_RESULTS pactfoundation/pact-cli:latest"
+PACT_CLI="docker run --network host --rm -v ${PWD}:${PWD} -e PYTHON_VERSION -e PACT_BROKER_BASE_URL -e PACT_BROKER_TOKEN -e PACT_BROKER_PUBLISH_VERIFICATION_RESULTS pactfoundation/pact-cli:latest"
 
 # Only deploy from master
 ifeq ($(GIT_BRANCH),master)
@@ -41,7 +41,7 @@ test:
 	pipenv run testApi
 
 test_provider: .env
-		docker-compose up --abort-on-container-exit --exit-code-from pact_verifier
+		docker-compose up --abort-on-container-exit --exit-code-from pact_verifier --build-arg PYTHON_VERSION=$(value PYTHON_VERSION)
 		docker-compose logs pact_verifier
 
 ## =====================
