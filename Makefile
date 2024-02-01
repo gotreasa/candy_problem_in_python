@@ -41,7 +41,8 @@ test:
 	pipenv run testApi
 
 test_provider: .env
-		docker-compose up --abort-on-container-exit --exit-code-from pact_verifier --build-arg PYTHON_VERSION=$(value PYTHON_VERSION)
+		docker-compose build --build-arg PYTHON_VERSION=$(value PYTHON_VERSION)
+		docker-compose up --abort-on-container-exit --exit-code-from pact_verifier
 		docker-compose logs pact_verifier
 
 ## =====================
